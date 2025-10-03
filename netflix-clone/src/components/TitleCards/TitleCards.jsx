@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./TitleCards.css";
 import cards_data from "../../assets/cards/Cards_data";
 
-const TitleCards = () => {
+const TitleCards = ({title, catagory}) => {
 
   const cardsRef = useRef();
 
@@ -17,13 +17,15 @@ const TitleCards = () => {
 
   return (
     <div className="title-cards">
-      <h2>Popular On Netflix</h2>
+      <h2>{title ? title : "Popular On Netflix"}</h2>
       <div className="card-list" ref={cardsRef}>
         {cards_data.map((card, index) => {
-          return <div className="card" key={index}>
-            <img src={card.image} alt={card.name} />
-            <p>{card.name}</p>
-          </div>;
+          return (
+            <div className="card" key={index}>
+              <img src={card.image} alt={card.name} />
+              <p>{card.name}</p>
+            </div>
+          );
         })}
       </div>
     </div>
