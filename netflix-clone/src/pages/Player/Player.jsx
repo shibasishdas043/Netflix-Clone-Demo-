@@ -1,75 +1,54 @@
 import React, { useEffect, useState } from "react";
 import "./Player.css";
 import back_arrow_icon from "../../assets/back_arrow_icon.png";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 const Player = () => {
-  const [apiData, setApiData] = useState([{
-    name:"", key:"", publlished_at:"", typeof:"",
-  }]);
+  const navigate = useNavigate();
+
+  const { id } = useParams();
 
 
-  // const options = {
-  //   method: "GET",
-  //   headers: {
-  //     accept: "application/json",
-  //     Authorization:
-  //       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMGEzYjNjM2M0NTYzOGMxY2Y1MDkyNDJiNDdmZWEyYSIsIm5iZiI6MTc1OTUxMzA4MS43OTMsInN1YiI6IjY4ZTAwOWY5Y2ViZWM1ODZkZjZiODc3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zcUCTf6tY_QlRYInSumf3eNzek-G1hyc6468VvAaBRs",
-  //   },
-  // };
+  const [apiData, setApiData] = useState({
+    name: "",
+    key: "",
+    type: "",
+    published_at: "",
+  });
 
-  // useEffect(() => {
-  //   fetch(
-  //     "https://api.themoviedb.org/3/movie/594767/videos?language=en-US",
-  //     options
-  //   )
-  //     .then((res) => res.json())
-  //     .then((res) => console.log(res))
-  //     .then((res) => setApiData(res.results[0]))
-  //     .catch((err) => console.error(err));
-  // }, []);
+
+
+
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMGEzYjNjM2M0NTYzOGMxY2Y1MDkyNDJiNDdmZWEyYSIsIm5iZiI6MTc1OTUxMzA4MS43OTMsInN1YiI6IjY4ZTAwOWY5Y2ViZWM1ODZkZjZiODc3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zcUCTf6tY_QlRYInSumf3eNzek-G1hyc6468VvAaBRs",
+    },
+  };
 
 
   useEffect(() => {
-    let url = `https://api.themoviedb.org/3/movie/594767/videos?language=en-US`;
-
-    const run = async () => {
-      try {
-        const res = await fetch(url, {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMGEzYjNjM2M0NTYzOGMxY2Y1MDkyNDJiNDdmZWEyYSIsIm5iZiI6MTc1OTUxMzA4MS43OTMsInN1YiI6IjY4ZTAwOWY5Y2ViZWM1ODZkZjZiODc3NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zcUCTf6tY_QlRYInSumf3eNzek-G1hyc6468VvAaBRs",
-          },
-        });
-
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-        const data = await res.json();
-        console.log(data.results);
-        setApiData([...data.results]);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    run();
-
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
+      options
+    )
+      .then((res) => res.json())
+      .then((res) => setApiData(res.results[0]))
+      .catch((err) => console.error(err));
+    
   }, []);
 
 
-
-
-
-
-
-
-
-
+  const prevPage = () => {
+    navigate("/");
+  }
 
   return (
     <div className="player">
-      <img src={back_arrow_icon} alt="" />
+      <img src={back_arrow_icon} alt="" onClick={() => prevPage()} />
       <iframe
         width={"90%"}
         height={"90%"}
@@ -79,9 +58,9 @@ const Player = () => {
         allowFullScreen
       ></iframe>
       <div className="player-info">
-        <p>{apiData.publlished_at}</p>
+        <p>{apiData.published_at.slice(0, 10)}</p>
         <p>{apiData.name}</p>
-        <p>{apiData.typeof}</p>
+        <p>{apiData.type}</p>
       </div>
     </div>
   );

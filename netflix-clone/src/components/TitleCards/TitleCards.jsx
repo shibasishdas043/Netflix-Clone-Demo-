@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./TitleCards.css";
+import { NavLink } from "react-router-dom";
 // import axios from "axios";
 
 const TitleCards = ({ title, topic, catagory }) => {
@@ -19,7 +20,6 @@ const TitleCards = ({ title, topic, catagory }) => {
           },
         });
 
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
         const data = await res.json();
         console.log(data.results);
@@ -47,10 +47,16 @@ const TitleCards = ({ title, topic, catagory }) => {
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card, index) => {
           return (
-            <div className="card" key={index}>
-              <img src={`https://image.tmdb.org/t/p/w500`+card.poster_path} alt="" />
-              <p>{card.title}</p>
-            </div>
+            <NavLink to={`/player/${card.id}`} key={index}>
+              <div className="card" key={index}>
+                <img
+                  key={index}
+                  src={`https://image.tmdb.org/t/p/w500` + card.poster_path}
+                  alt=""
+                />
+                <p>{card.title}</p>
+              </div>
+            </NavLink>
           );
         })}
       </div>
