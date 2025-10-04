@@ -2,12 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import "./TitleCards.css";
 // import axios from "axios";
 
-const TitleCards = ({ title, catagory }) => {
+const TitleCards = ({ title, topic, catagory }) => {
   const [apiData, setApiData] = useState([]);
 
   useEffect(() => {
-    const url =
-      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+    let url = `https://api.themoviedb.org/3/${topic}/${catagory}?language=en-US&page=1`;
 
     const run = async () => {
       try {
