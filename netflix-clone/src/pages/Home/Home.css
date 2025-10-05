@@ -6,6 +6,7 @@
     width: 100%;
     mask-image: linear-gradient(to right, transparent, black 75%);
     -weblit-mask-image: linear-gradient(to right, transparent, black 75%);
+    
 }
 
 .hero-caption {
@@ -13,6 +14,7 @@
     width: 100%;
     padding-left: 6%;
     bottom: 0;
+    
 }
 
 .caption-img {
@@ -23,7 +25,7 @@
 }
 
 .hero-caption {
-    max-width: 700px;
+    max-width:94%;
     font-size: 17px;
     margin-bottom: 20px;
 }
@@ -72,15 +74,15 @@
 
 @media(max-width:1024px) {
     .hero-caption .title-cards {
-        display: none; 
+        display: none;
     }
 
     .hero-btn {
         margin-bottom: 30px;
     }
-} 
+}
 
- @media(max-width:800px) {
+@media(max-width:800px) {
     .hero-caption {
         padding-left: 4%;
     }
@@ -102,22 +104,25 @@
     .more-cards {
         padding-left: 4%;
     }
-} 
+}
 
-@media(max-width:800px){
+@media(max-width:800px) {
     .caption-img {
-           display: none;
-        }
-        .caption-img {
-            margin-bottom: 10px;
-            width: 40%;
-        }
-        .hero-btn .btn img{
-            width: 15px;
-        }
-        .btn{
-            padding: 4px 10px;
-            gap: 5px;
-            font-size: 10px;
-        }
+        display: none;
+    }
+
+    .caption-img {
+        margin-bottom: 10px;
+        width: 40%;
+    }
+
+    .hero-btn .btn img {
+        width: 15px;
+    }
+
+    .btn {
+        padding: 4px 10px;
+        gap: 5px;
+        font-size: 10px;
+    }
 }
