@@ -12,6 +12,7 @@ import {
     getFirestore
 } from "firebase/firestore";
 import { toast } from "react-toastify";
+  
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,6 +26,7 @@ const firebaseConfig = {
   messagingSenderId: "102067044971",
   appId: "1:102067044971:web:54d9a76e26a5b528c1e72e",
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

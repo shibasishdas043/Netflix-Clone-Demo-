@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/logo.png";
 import { auth, db, login, signup, logout } from "../../firebase";
-import loading_spinner from "../../assets/netflix_spinner.gif";
 import Loader from "../../spinner/Loader";
 
 const Login = () => {
@@ -21,7 +20,7 @@ const Login = () => {
     if (signState === "Sign In") {
       setLoading(true);
       await login(email, password);
-      setLoading(true);
+      setLoading(false);
     } else {
       setLoading(true);
       signup(name, email, password);

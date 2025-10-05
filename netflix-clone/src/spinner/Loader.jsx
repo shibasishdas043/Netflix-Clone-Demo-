@@ -1,13 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+// import React from "react";
+// import styled from "styled-components";
+// // import "./Loader.css"
 
-const Loader = () => {
-  return (
-    <StyledWrapper>
-      <div className="loader" />
-    </StyledWrapper>
-  );
-};
+// const Loader = () => {
+//   return (
+//     <StyledWrapper>
+//       <div className="loader" />
+//     </StyledWrapper>
+//   );
+// };
 
 // const StyledWrapper = styled.div`
 //   .loader {
@@ -43,5 +44,65 @@ const Loader = () => {
 //     }
 //   }
 // `;
+
+// export default Loader;
+
+import React from "react";
+import styled from "styled-components";
+// import "./Loader.css"
+
+const Loader = () => {
+  return (
+    <StyledWrapper>
+      <div className="loader" />
+    </StyledWrapper>
+  );
+};
+
+const StyledWrapper = styled.div`
+  /* Added styles to center the content */
+  position: fixed; /* Ensures it covers the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Viewport width */
+  height: 100vh; /* Viewport height */
+  display: flex; /* Enables flexbox for centering */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  /* End of added styles */
+
+  .loader {
+    width: 45px;
+    height: 40px;
+    background: linear-gradient(
+        #0000 calc(1 * 100% / 6),
+        #fff 0 calc(3 * 100% / 6),
+        #0000 0
+      ),
+      linear-gradient(
+        #0000 calc(2 * 100% / 6),
+        #fff 0 calc(4 * 100% / 6),
+        #0000 0
+      ),
+      linear-gradient(
+        #0000 calc(3 * 100% / 6),
+        #fff 0 calc(5 * 100% / 6),
+        #0000 0
+      );
+    background-size: 10px 400%;
+    background-repeat: no-repeat;
+    animation: matrix 1s infinite linear;
+  }
+
+  @keyframes matrix {
+    0% {
+      background-position: 0% 100%, 50% 100%, 100% 100%;
+    }
+
+    100% {
+      background-position: 0% 0%, 50% 0%, 100% 0%;
+    }
+  }
+`;
 
 export default Loader;

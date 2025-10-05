@@ -7,6 +7,11 @@ const TitleCards = ({ title, topic, catagory }) => {
   const [apiData, setApiData] = useState([]);
 
   useEffect(() => {
+
+    // fetch(
+    //   "https://api.themoviedb.org/3/movie/movie_id/lists?language=en-US&page=1",
+    //   options
+    // );
     let url = `https://api.themoviedb.org/3/${topic}/${catagory}?language=en-US&page=1`;
 
     const run = async () => {
