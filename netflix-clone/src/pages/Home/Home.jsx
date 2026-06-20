@@ -34,7 +34,7 @@ const Home = () => {
             </button>
           </div>
           <TitleCards
-            title={"Populer On Netflix"}
+            title={"Populer Shows"}
             topic={"tv"}
             catagory={"on_the_air"}
           />

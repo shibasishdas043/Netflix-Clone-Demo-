@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import "./Navbar.css"
-import logo from "../../assets/logo.png"
+// import logo from "../../assets/logo.png"
 import search_icon from "../../assets/search_icon.svg";
 import bell_icon from "../../assets/bell_icon.svg";
 import profile_img from "../../assets/profile_img.png";
@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <div ref={navRef} className="navbar">
       <div className="navbar-left">
-        <img src={logo} alt="netflix-logo" />
+        {/* <img src={logo} alt="netflix-logo" /> */}
         <ul>
           <li>Home</li>
           <li>TV Show</li>
@@ -50,7 +50,7 @@ const Navbar = () => {
                   <img src={caret_img} alt="search_icon" />
                   
                   <div className='dropdown'>
-                      <p onClick={()=>logout()}>Sign Out Of Netflix</p>
+                      <p onClick={()=>logout()}>Sign Out !</p>
                   </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 import { auth, db, login, signup, logout } from "../../firebase";
 import Loader from "../../spinner/Loader";
 
@@ -33,7 +33,9 @@ const Login = () => {
 
   return (
     <div className="login">
-      <img src={logo} className="login-logo" />
+      {/* <img src={logo} className="login-logo" /> */}
+      <p className="reminder">Demo Login: Please do not enter real passwords.</p>
+      <p className="reminder">Educational Portfolio Project. Not affiliated with or endorsed by any brand.</p>
       {
         loading ? (
         <Loader />
@@ -78,7 +80,7 @@ const Login = () => {
             <div className="form-switch">
               {signState === "Sign In" ? (
                 <p>
-                  New To Nteflix ?{" "}
+                  New User ?{" "}
                   <span onClick={() => setSignState("Sign Up")}>
                     Sign Up Now
                   </span>
